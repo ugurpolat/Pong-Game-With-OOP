@@ -73,57 +73,60 @@ class Ball extends Shape {
   }
 
   checkStickCollision() {
-    if (this.left <= 0) {
-      this.removeHTMLElement();
-      this.isBallActive = false;
-    }
-
-    if (this.left >= 900) {
-      this.removeHTMLElement();
-      this.isBallActive = false;
-    }
-    // if (this.left <= stick1.width + 20) {
-    //   if (this.ball_out_of_stick === false) {
-    //     if (
-    //       this.top + this.height > stick1.top &&
-    //       this.top < stick1.top + stick1.height
-    //     ) {
-    //       this.leftSpeed = -this.leftSpeed;
-    //     } else {
-    //       this.ball_out_of_stick = true;
-    //     }
-    //   } else {
-    //     if (this.left + this.width < 0) {
-    //       // destroy this ball object
-    //       console.log("soldan çıktı");
-    //       if (this.isBallActive) {
-    //         this.removeHTMLElement();
-    //         this.isBallActive = false;
-    //       }
-    //     }
-    //   }
+    // if (this.left <= 0) {
+    //   this.removeHTMLElement();
+    //   this.isBallActive = false;
     // }
 
-    // if (this.left + this.width >= 900 - stick2.width - 20) {
-    //   if (this.ball_out_of_stick == false) {
-    //     if (
-    //       this.top + this.height > stick2.top &&
-    //       this.top < stick2.top + stick2.height
-    //     ) {
-    //       this.leftSpeed = -this.leftSpeed;
-    //     } else {
-    //       this.ball_out_of_stick = true;
-    //     }
-    //   } else {
-    //     if (this.left > 900) {
-    //       // destroy this ball object
-    //       if (this.isBallActive) {
-    //         this.removeHTMLElement();
-    //         this.isBallActive = false;
-    //       }
-    //     }
-    //   }
+    // if (this.left >= 900) {
+    //   this.removeHTMLElement();
+    //   this.isBallActive = false;
     // }
+
+    if (this.left <= parseInt(stick1.style.width) + 20) {
+      if (this.ball_out_of_stick === false) {
+        if (
+          this.top + this.height > parseInt(stick1.style.top) &&
+          this.top < parseInt(stick1.style.top) + parseInt(stick1.style.height)
+        ) {
+          this.leftSpeed = -this.leftSpeed;
+        } else {
+          this.ball_out_of_stick = true;
+        }
+      } else {
+        if (this.left + this.width < 0) {
+          // destroy this ball object
+          console.log("soldan çıktı");
+          if (this.isBallActive) {
+            this.removeHTMLElement();
+            this.isBallActive = false;
+            console.log("soldan");
+          }
+        }
+      }
+    }
+
+    if (this.left + this.width >= 900 - parseInt(stick2.style.width) - 10) {
+      if (this.ball_out_of_stick == false) {
+        if (
+          this.top + this.height > parseInt(stick2.style.top) &&
+          this.top < parseInt(stick2.style.top) + parseInt(stick2.style.height)
+        ) {
+          this.leftSpeed = -this.leftSpeed;
+        } else {
+          this.ball_out_of_stick = true;
+        }
+      } else {
+        if (this.left > 900) {
+          // destroy this ball object
+          if (this.isBallActive) {
+            this.removeHTMLElement();
+            this.isBallActive = false;
+            console.log("sağdan");
+          }
+        }
+      }
+    }
   }
 
   startLife() {
