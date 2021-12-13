@@ -96,17 +96,18 @@ class Ball extends Shape {
       } else {
         if (this.left + this.width < 0) {
           // destroy this ball object
-          console.log("soldan çıktı");
           if (this.isBallActive) {
             this.removeHTMLElement();
             this.isBallActive = false;
-            console.log("soldan");
           }
         }
       }
     }
 
-    if (this.left + this.width >= 900 - parseInt(stick2.style.width) - 10) {
+    if (
+      this.left + this.width >=
+      parseInt(field.style.width) - parseInt(stick2.style.width) - 10
+    ) {
       if (this.ball_out_of_stick == false) {
         if (
           this.top + this.height > parseInt(stick2.style.top) &&
@@ -117,12 +118,11 @@ class Ball extends Shape {
           this.ball_out_of_stick = true;
         }
       } else {
-        if (this.left > 900) {
+        if (this.left > parseInt(field.style.width)) {
           // destroy this ball object
           if (this.isBallActive) {
             this.removeHTMLElement();
             this.isBallActive = false;
-            console.log("sağdan");
           }
         }
       }
