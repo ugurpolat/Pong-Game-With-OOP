@@ -6,13 +6,11 @@ class Ball extends Shape {
     this.top = top;
     this.left = left;
     this.speed = speed;
-
     this.ball_out_of_stick = false;
     this.isBallActive = isBallActive;
-    // this.isBallActive = true;
 
     let side;
-
+    this.speedFactor = 0.4;
     if (Math.random() < 0.5) {
       side = 1;
     } else {
@@ -73,23 +71,13 @@ class Ball extends Shape {
   }
 
   checkStickCollision() {
-    // if (this.left <= 0) {
-    //   this.removeHTMLElement();
-    //   this.isBallActive = false;
-    // }
-
-    // if (this.left >= 900) {
-    //   this.removeHTMLElement();
-    //   this.isBallActive = false;
-    // }
-
     if (this.left <= parseInt(stick1.style.width) + 20) {
       if (this.ball_out_of_stick === false) {
         if (
           this.top + this.height > parseInt(stick1.style.top) &&
           this.top < parseInt(stick1.style.top) + parseInt(stick1.style.height)
         ) {
-          this.leftSpeed = -this.leftSpeed;
+          this.leftSpeed = -this.leftSpeed + this.speedFactor;
         } else {
           this.ball_out_of_stick = true;
         }
@@ -113,7 +101,7 @@ class Ball extends Shape {
           this.top + this.height > parseInt(stick2.style.top) &&
           this.top < parseInt(stick2.style.top) + parseInt(stick2.style.height)
         ) {
-          this.leftSpeed = -this.leftSpeed;
+          this.leftSpeed = -this.leftSpeed + -this.speedFactor;
         } else {
           this.ball_out_of_stick = true;
         }

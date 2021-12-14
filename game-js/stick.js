@@ -42,13 +42,13 @@ class Stick extends Shape {
       "keydown",
       function (e) {
         let key = e.key;
-        if (this.stickID === "stick1") {
+        if (this.stickID === "stick2") {
           if (key === "ArrowUp") {
             this.speed = -this.stickSpeedIncrease;
           } else if (key === "ArrowDown") {
             this.speed = this.stickSpeedIncrease;
           }
-        } else if (this.stickID === "stick2") {
+        } else if (this.stickID === "stick1") {
           if (key === "W" || key === "w") {
             this.speed = -this.stickSpeedIncrease;
           } else if (key === "S" || key === "s") {
@@ -66,13 +66,13 @@ class Stick extends Shape {
       "keyup",
       function (e) {
         let key = e.key;
-        if (this.stickID === "stick1") {
+        if (this.stickID === "stick2") {
           if (key === "ArrowUp") {
             this.speed = 0;
           } else if (key === "ArrowDown") {
             this.speed = 0;
           }
-        } else if (this.stickID === "stick2") {
+        } else if (this.stickID === "stick1") {
           if (key === "W" || key === "w") {
             this.speed = 0;
           } else if (key === "S" || key === "s") {
