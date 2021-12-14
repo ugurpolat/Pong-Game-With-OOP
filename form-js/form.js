@@ -5,7 +5,7 @@ const form = document.getElementById("form");
 form.addEventListener("submit", function (e) {
   localStorage.setItem("player1", playerName_1.value);
   localStorage.setItem("player2", playerName_2.value);
-  window.open("index.html", "_self");
+  window.open("game.html", "_self");
 
   e.preventDefault();
 });

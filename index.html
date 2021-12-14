@@ -4,18 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Pong-Game</title>
+    <link rel="stylesheet" href="/css/form.css">
+    <title> Welcome to Pong</title>
   </head>
   <body>
-    <div id="gameField"></div>
-
-    <script src="/game-js/shape.js"></script>
-    <script src="/game-js/field.js"></script>
-    <script src="/game-js/scoreBoard.js"></script>
-    <script src="/game-js/stick.js"></script>
-    <script src="/game-js/net.js"></script>
-    <script src="/game-js/ball.js"></script>
-    <script src="/game-js/app.js"></script>
+    <div class="container">
+        <form id="form" class="form">
+            <h2>Welcome Pong Game</h2>
+            <div class="form-control">
+                <label for="username">Player-1 Name</label>
+                <input type="text" id="player-1" placeholder="Enter player-1 name">
+                <small> Error message</small>            
+            </div>
+            <div class="form-control">
+                <label for="email">Player-2 Name</Eabel>
+                <input type="text" id="player-2" placeholder="Enter player-2 name">
+                <small> Error message</small>                
+            </div>
+            
+            <button>Submit</button>
+        </form>
+    </div>
+    <script src="/form-js/form.js"></script>
   </body>
 </html>
