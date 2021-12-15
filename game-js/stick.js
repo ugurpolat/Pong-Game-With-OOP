@@ -47,14 +47,14 @@ class Stick extends Shape {
             this.speed = -this.stickSpeedIncrease;
           } else if (key === "ArrowDown") {
             this.speed = this.stickSpeedIncrease;
-          }
+          } //else if (key === " ") {
+          //   this.createHTMLBall();
+          // }
         } else if (this.stickID === "stick1") {
           if (key === "W" || key === "w") {
             this.speed = -this.stickSpeedIncrease;
           } else if (key === "S" || key === "s") {
             this.speed = this.stickSpeedIncrease;
-          } else if (key === " ") {
-            // createBallObject();
           }
         }
       }.bind(this)

@@ -18,37 +18,52 @@ function startGame() {
   const score2 = document.getElementById("score2");
 }
 
+function keyDown() {
+  document.addEventListener("keydown", function (e) {
+    let key = e.key;
+    if (key === " ") {
+      if (player1 != 5 && player2 != 5) {
+        const ball = new Ball("ball" + ball_id, 10, 10, "white", 300, 450, 10, true);
+
+        ball_id++;
+        balls.push(ball);
+      }
+    }
+  });
+}
+
 function loop() {
   window.setInterval(function show() {
+    
     if (!gameOver) {
-      if (balls.length >= 0 && !gameOver) {
-        if (balls[0].isBallActive === false) {
-          if (balls[0].left > gameField.width) {
-            player1++;
-            score1.innerHTML = `${player1}`;
+      if (balls.length > 0 && !gameOver) {
+        balls.forEach((ball) => {
+          if (ball.isBallActive === false) {
+            if (ball.left > gameField.width) {              
+               player1++;
+               score1.innerHTML = `${player1}`;
+               
+               delete ball;
+               balls.length--;
+               
+               if (player1 === winNumber) {
+                  gameOver = true;
+               } 
+            } else if (ball.left < 0) {             
+               player2++;
+               score2.innerHTML = `${player2}`;
 
-            delete balls[0];
-            balls.length--;
-
-            if (player1 === winNumber) {
-              gameOver = true;
-            } else {
-              createBall();
-            }
-          } else if (balls[0].left < 0) {
-            player2++;
-            score2.innerHTML = `${player2}`;
-
-            delete balls[0];
-            balls.length--;
-
-            if (player2 === winNumber) {
-              gameOver = true;
-            } else {
-              createBall();
+               delete ball;
+               balls.length--;
+               
+               if (player2 === winNumber) {
+               gameOver = true;
+              } 
             }
           }
-        }
+        });
+      } else if(balls.length <= 0 && !gameOver) {
+        createBall();
       }
     }
   }, 1000 / 60);
@@ -63,6 +78,7 @@ function createBall() {
 
 function setEvents() {
   startGame();
+  keyDown();
   loop();
 }
 

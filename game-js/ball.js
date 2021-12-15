@@ -30,6 +30,7 @@ class Ball extends Shape {
     const ball = document.createElement("div");
 
     ball.id = this.ballID;
+    ball.className = "ball";
     ball.style.width = `${this.width}px`;
     ball.style.height = `${this.height}px`;
     ball.style.top = `${this.top}px`;
